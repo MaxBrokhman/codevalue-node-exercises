@@ -1,0 +1,13 @@
+{
+  "name": "exercise-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server1.js",
+  "scripts": {
+    "start:server": "node src/server.js",
+    "start:client": "node src/client.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
