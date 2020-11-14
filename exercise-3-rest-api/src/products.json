@@ -1,0 +1,21 @@
+[{
+  "name": "Oysters - Smoked",
+  "itemsInStock": 1,
+  "categoryId": "2"
+}, {
+  "name": "Beer - Sleemans Honey Brown",
+  "itemsInStock": 2,
+  "categoryId": "2"
+}, {
+  "name": "Campari",
+  "itemsInStock": 3,
+  "categoryId": "1"
+}, {
+  "name": "Muffin Batt - Blueberry Passion",
+  "itemsInStock": 4,
+  "categoryId": "3"
+}, {
+  "name": "Beans - Black Bean, Dry",
+  "itemsInStock": 5,
+  "categoryId": "3"
+}]
