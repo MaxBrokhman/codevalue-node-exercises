@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { v1 } from 'uuid';
 import data from '../data';
 import { findItem } from './utils';
+import { productNameValidator } from '../middleware/productNameValidator';
 
 export const productsRouter = Router();
 
@@ -15,24 +16,18 @@ productsRouter.get('/:id', findProduct, (req, res) => {
   res.status(200).send(res.locals.item);
 });
 
-productsRouter.post('/', (req, res) => {
-  if (req.body && req.body.name && req.body.name.length >= 3) {
-    const newProduct = {
-      ...req.body,
-      id: v1(),
-    };
-    data.products.push(newProduct);
-    return res.status(201).send(newProduct);
-  }
-  res.sendStatus(400);
+productsRouter.post('/', productNameValidator, (req, res) => {
+  const newProduct = {
+    ...req.body,
+    id: v1(),
+  };
+  data.products.push(newProduct);
+  res.status(201).send(newProduct);
 });
 
-productsRouter.put('/:id', findProduct, (req, res) => {
+productsRouter.put('/:id', productNameValidator, findProduct, (req, res) => {
   const idx = res.locals.itemIdx;
   if (req.body) {
-    if (req.body.name && req.body.name.length < 3) {
-      return res.sendStatus(400);
-    }
     data.products[idx] = {
       ...data.products[idx],
       ...req.body,
